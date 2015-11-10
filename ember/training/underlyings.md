@@ -374,6 +374,7 @@ les classes avec de nouvelles propriétés ou méthodes.
     >       displayTitle: function() {
     >         console.log('Title:');
     >         this._super();
+    >         }
     >      });
     >
     >  > three = Book.create({title: 'three'});
@@ -566,6 +567,9 @@ d'entre elles.
     >  "new writer"
     >
     >  > five.get('authors');
+    >  "new writer and 5 drawer"
+    >
+    >  > five.get('summary');
     >  "five by new writer and 5 drawer"
     > ```
     
@@ -580,7 +584,7 @@ javascript contenant à la fois une méthode get et une méthode set au lieu de 
 <div class="work">
     {% capture m %}
  
-1. Réouvrir la classe ``Séries`` de manière à modifier la propriété ``authors`` pour lui fournir un setter afin de mettre à jour ``writer`` et ``drawer`` lorsque l'on modifie ``authors``. L'objectif
+1. Réouvrir la classe ``Comic`` de manière à modifier la propriété ``authors`` pour lui fournir un setter afin de mettre à jour ``writer`` et ``drawer`` lorsque l'on modifie ``authors``. L'objectif
 est de permettre la séquence suivante : 
 
     ```javascript
