@@ -648,11 +648,10 @@ créer deux nouvelles séries :
 lors de la modification de l'un des statuts ``isPublished`` des éléments de la collection ``books``, lors d'un ajout ou d'une suppression (``books.@each.isPublished``). Cette propriété
 retourne le nombre de livres publiés dans la collection. Placer un log dans la fonction de manière à tracer son exécution.
 
-    Créer ensuite une collection contenant les trois séries créées.
+    Créer ensuite une collection contenant les trois comics créés.
     
     Constater que cette propriété est bien mise à jour (calculée) lorsque l'on change la valeur de la propriété ``isPublished``
-    de l'une des trois série ou lorsque l'on en supprime une. En revanche, elle n'est pas exécutée lorsque n'importe quelle autre propriété
-    d'une série est modifiée.
+    de l'un des trois comic ou lorsque l'on en supprime un. En revanche, elle n'est pas exécutée lorsque n'importe quelle autre propriété d'un comic est modifiée.
 
     > ```javascript
     > > Collection.reopen({
@@ -661,7 +660,9 @@ retourne le nombre de livres publiés dans la collection. Placer un log dans la 
     >   	return this.get('books').filterBy('isPublished', true).length;
     >     }.property('books.@each.isPublished')
     >   });
-    >   
+    >
+    > > newCollection = Collection.create({books: [one, two, three]});
+    >
     > > newCollection.get('numberOfPublished');
     > compute numberOfPublished
     > 1
@@ -684,9 +685,9 @@ retourne le nombre de livres publiés dans la collection. Placer un log dans la 
 3. Réouvrir ``Collection`` pour changer les conditions de dépendance de la propriété calculée en supprimant le filtre supplémentaire sur la
 propriété ``isPublished`` (``books.[]``).
 
-    Créer ensuite une collection contenant les trois séries créées.
+    Créer ensuite une collection contenant les trois comics créés.
     
-    Constater que cette propriété n'est mise à jour (calculée) que lors d'un ajout ou d'une suppression dans la liste des séries. La modification
+    Constater que cette propriété n'est mise à jour (calculée) que lors d'un ajout ou d'une suppression dans la liste des comics. La modification
     d'une propriété d'un élément de la liste (quelque soit cette propriété) ne déclenche pas l'éxécution de la fonction.
     
     > ```javascript
